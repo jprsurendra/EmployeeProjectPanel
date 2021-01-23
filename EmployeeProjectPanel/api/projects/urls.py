@@ -10,4 +10,4 @@ urlpatterns = [
 ]
 urlpatterns += router.urls
 
-app_name = 'projects'
+# app_name = 'projects'
