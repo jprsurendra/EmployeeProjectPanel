@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+#idea's local settings
+#/home/jiffy/JiffyHome/DigitalFreightForwarder/dff/code/jiffyship
+dff/code/jiffyship/.idea
+dff/code/jiffyship/.idea/
+dff/code/jiffyship/.idea/*
+
+.gitignore/
+EmployeeProjectPanel/.idea/
+
