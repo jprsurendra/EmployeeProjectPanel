@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="font-awesome/css/datatables.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/datatables.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 </head>
 <body class=" wow fadeIn">
 
@@ -45,9 +45,9 @@
 			<div class="col-md-2">
 				<div class="sidenav">
 					<ul>
-						<li><a href="dashboard.html">Dashboard</a></li>
-						<li><a href="employees.html">Employees</a></li>
-						<li><a href="projects.html">Projects</a></li>
+						<li><a href="/">Dashboard</a></li>
+						<li><a href="/">Employees</a></li>
+						<li><a href="/projects">Projects</a></li>
 					</ul>
 				</div>
 			</div>
