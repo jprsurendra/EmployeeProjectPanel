@@ -5,6 +5,6 @@ from .models import Employee
 from .serializers import EmployeeSerializer
 
 
-class AuthorModelViewSet(viewsets.ModelViewSet):
+class EmployeeModelViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all() # SELECT * FROM tbl_authors
     serializer_class = EmployeeSerializer
