@@ -1,0 +1,79 @@
+body{
+    background-color: transparent !important;
+}
+*{
+    font-family: system-ui !important;
+}
+a, a:hover{
+    text-decoration: none;
+}
+.card{
+  padding: 30px;
+  margin: 0 5px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 280px;
+  margin: 20px;
+  background: #f9f9f9;
+}
+.card >img{
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 16px;
+}
+.card >h2{
+  color: #241C4A;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 32px;
+  text-align: center;
+}
+.card >p{
+  color: #3A3A3A;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 23px;
+  text-align: center;
+  margin-top: 15px;
+}
+.dataTables_filter, .dataTables_paginate{
+    text-align: right;
+}
+table.table th, table.table td{
+    padding: 15px 10px !important;
+}
+.sidenav{
+    background: #797979;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    width: 15%;
+    height: 100vh;
+    margin-top: -20px;
+    padding: 0;
+    padding-top: 20px;
+}
+.sidenav ul{
+    padding-left: 0 !important;
+}
+.sidenav li{
+    list-style: none;
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0 15px;
+}
+.sidenav li:hover{
+    opacity: .9;
+    background: #333;
+}
+.sidenav a{
+    color: #fff;
+    display: block;
+}
+.navbar.navbar-inverse{
+    border-radius: 0;
+}

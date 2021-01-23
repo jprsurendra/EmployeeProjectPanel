@@ -1,7 +1,17 @@
 from django.conf.urls import url
+from rest_framework import routers
+
 from django.views.generic import TemplateView
+
 from . import views
 
+router = routers.DefaultRouter()
+# router.register(r'common_operations', AuthorModelViewSet)
+
 urlpatterns = [
-	url(r'^$', TemplateView.as_view(template_name='dashboard/dashboard.html')),
+    # url(r'^$', AuthorViewSet.as_view({'get': 'list'}), name='author'),
+    # url(r'^author-name-by-id/(?P<pk>\d{0,50})/$', AuthorView.as_view(), name='author-name'),
+    # url(r'^author-name-list/$', AuthorList.as_view(), name='author-name-list'),
 ]
+urlpatterns += router.urls
+app_name = 'dashboard'

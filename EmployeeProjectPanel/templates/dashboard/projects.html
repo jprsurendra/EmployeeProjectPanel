@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 	<title>Document</title>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-
-  {% comment %}  <script src="{% static 'js/pages/currency_converter.js' %}"></script>{% endcomment %}
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="font-awesome/css/datatables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body class=" wow fadeIn">
 
@@ -43,7 +42,7 @@
 				</header>
 			</div>
 
-			<div class="col-md-2" style="padding: 0;">
+			<div class="col-md-2">
 				<div class="sidenav">
 					<ul>
 						<li><a href="dashboard.html">Dashboard</a></li>
@@ -56,34 +55,46 @@
 
 				<section>
 					<article>
-						<div class="row">
-							<div class="col-md-4">
-								<a href="employees.html">
-									<div class="card">
-										<img src="img/user.png">
-										<h2>Employees</h2>
-										<p>
-											<span class="pull-left">No. of Employees</span>
-											<span class="pull-right"><b>25</b></span>
-										</p>
-									</div>
-								</a>
-							</div>
+						<h2 style="margin-bottom: 30px; margin-top: 10px;">Projects</h2>
+						<table class="table project-table table-striped">
+							<thead>
+								<tr>
+									<th>Project Name</th>
+									<th>Start date</th>
+									<th>End date</th>
+									<th>Duration</th>
+									<th>Count of assigned employees</th>
+									<th>Names of assigned employees</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Project 1</td>
+									<td>01/02/2020</td>
+									<td>01/02/2021</td>
+									<td>12 months</td>
+									<td>4</td>
+									<td>John, Martin, Jack, Maria</td>
+								</tr>
+								<tr>
+									<td>Project 1</td>
+									<td>01/02/2020</td>
+									<td>01/02/2021</td>
+									<td>12 months</td>
+									<td>4</td>
+									<td>John, Martin, Jack, Maria</td>
+								</tr>
+								<tr>
+									<td>Project 1</td>
+									<td>01/02/2020</td>
+									<td>01/02/2021</td>
+									<td>12 months</td>
+									<td>4</td>
+									<td>John, Martin, Jack, Maria</td>
+								</tr>
+							</tbody>
+						</table>
 
-							<div class="col-md-4">
-								<a href="projects.html">
-									<div class="card">
-										<img src="img/business.png">
-										<h2>Projects</h2>
-										<p>
-											<span class="pull-left">No. of Projects</span>
-											<span class="pull-right"><b>21</b></span>
-										</p>
-									</div>
-								</a>
-							</div>
-
-						</div>
 					</article>
 				</section>
 
@@ -96,6 +107,13 @@
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/datatables.min.js"></script>
 
+
+	<script type="text/javascript">
+		$('.project-table').DataTable( {
+
+		} );
+	</script>
 </body>
 </html>
