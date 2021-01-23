@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api.employees.apps.EmployeesConfig',
+    'api.projects.apps.ProjectsConfig',
     'web.dashboard.apps.DashboardConfig',
 ]
 
