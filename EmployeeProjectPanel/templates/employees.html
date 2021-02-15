@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/jquery.orgchart.min.css"/>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class=" wow fadeIn">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12" style="padding: 0;">
+				<header>
+					<nav class="navbar navbar-inverse">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">Brand</a>
+							</div>
+						</div>
+					</nav>
+				</header>
+			</div>
+
+			<div class="col-xs-2" style="padding: 0;">
+				<div class="sidenav">
+					<ul>
+						<li>
+							<a href="dashboard.html">
+								<i class="fa fa-home"></i>
+								<span>Dashboard</span>
+							</a>
+						</li>
+						<li>
+							<a href="employees.html">
+								<i class="fa fa-users"></i>
+								<span>Employees</span>
+							</a>
+						</li>
+						<li>
+							<a href="projects.html">
+								<i class="fa fa-list"></i>
+								<span>Projects</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-10">
+				<section>
+					<article>
+						<div class="row">
+							<div class="col-md-12">
+								<h2 style="margin-bottom: 30px; margin-top: 10px;">Employees</h2>
+								<div id="chart-container"></div>
+									<div id="edit-panel" class="view-state">
+									  <input type="text" id="key-word" placeholder="Search Employee">
+									  <button type="button" id="btn-filter-node">Filter</button>
+									  <button type="button" id="btn-cancel">Cancel</button>
+									</div>
+							</div>
+
+						</div>
+					</article>
+				</section>
+
+				<footer></footer>
+			</div>
+		</div>
+	</div>
+	
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.orgchart.min.js"></script>
+
+
+	<script type="text/javascript">
+		function filterNodes(keyWord) {
+		  if (!keyWord.length) {
+		    window.alert("Please type key word firstly.");
+		    return;
+		  } else {
+		    var $chart = $(".orgchart");
+		    // disalbe the expand/collapse feture
+		    $chart.addClass("noncollapsable");
+		    // distinguish the matched nodes and the unmatched nodes according to the given key word
+		    $chart
+		      .find(".node")
+		      .filter(function(index, node) {
+		        return (
+		          $(node)
+		            .text()
+		            .toLowerCase()
+		            .indexOf(keyWord) > -1
+		        );
+		      })
+		      .addClass("matched")
+		      .closest("table")
+		      .parents("table")
+		      .find("tr:first")
+		      .find(".node")
+		      .addClass("retained");
+		    // hide the unmatched nodes
+		    $chart.find(".matched,.retained").each(function(index, node) {
+		      $(node)
+		        .removeClass("slide-up")
+		        .closest(".nodes")
+		        .removeClass("hidden")
+		        .siblings(".lines")
+		        .removeClass("hidden");
+		      var $unmatched = $(node)
+		        .closest("table")
+		        .parent()
+		        .siblings()
+		        .find(".node:first:not(.matched,.retained)")
+		        .closest("table")
+		        .parent()
+		        .addClass("hidden");
+		      $unmatched
+		        .parent()
+		        .prev()
+		        .children()
+		        .slice(1, $unmatched.length * 2 + 1)
+		        .addClass("hidden");
+		    });
+		    // hide the redundant descendant nodes of the matched nodes
+		    $chart.find(".matched").each(function(index, node) {
+		      if (
+		        !$(node)
+		          .closest("tr")
+		          .siblings(":last")
+		          .find(".matched").length
+		      ) {
+		        $(node)
+		          .closest("tr")
+		          .siblings()
+		          .addClass("hidden");
+		      }
+		    });
+		  }
+		}
+
+		function clearFilterResult() {
+		  $(".orgchart")
+		    .removeClass("noncollapsable")
+		    .find(".node")
+		    .removeClass("matched retained")
+		    .end()
+		    .find(".hidden")
+		    .removeClass("hidden")
+		    .end()
+		    .find(".slide-up, .slide-left, .slide-right")
+		    .removeClass("slide-up slide-right slide-left");
+		}
+
+		(function($) {
+		  $(function() {
+		    var ds = {
+		      name: "Lao Lao",
+		      title: "general manager",
+		      children: [
+		        {
+		          name: "Bo Miao",
+		          title: "department manager",
+		          children: [
+		            { name: "Li Jing", title: "senior engineer" },
+		            {
+		              name: "Li Xin",
+		              title: "senior engineer",
+		              children: [
+		                { name: "To To", title: "engineer" },
+		                { name: "Fei Fei", title: "engineer" },
+		                { name: "Xuan Xuan", title: "engineer" }
+		              ]
+		            }
+		          ]
+		        },
+		        {
+		          name: "Su Miao",
+		          title: "department manager",
+		          children: [
+		            { name: "Pang Pang", title: "senior engineer" },
+		            {
+		              name: "Hei Hei",
+		              title: "senior engineer",
+		              children: [
+		                { name: "Xiang Xiang", title: "UE engineer" },
+		                { name: "Dan Dan", title: "engineer" }
+		              ]
+		            }
+		          ]
+		        }
+		      ]
+		    };
+
+		    var oc = $("#chart-container").orgchart({
+		      data: ds,
+		      nodeContent: "title"
+		    });
+		    $("#btn-filter-node").on("click", function() {
+		      filterNodes($("#key-word").val());
+		    });
+
+		    $("#btn-cancel").on("click", function() {
+		      clearFilterResult();
+		    });
+
+		    $("#key-word").on("keyup", function(event) {
+		      if (event.which === 13) {
+		        filterNodes(this.value);
+		      } else if (event.which === 8 && this.value.length === 0) {
+		        clearFilterResult();
+		      }
+		    });
+		  });
+		})(jQuery);
+
+	</script>
+</body>
+</html>
