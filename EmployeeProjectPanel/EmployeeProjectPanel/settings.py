@@ -146,3 +146,12 @@ if not DEBUG:
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+
+try:
+    from .logger_config import *
+    from .constants import *
+    from .email_config import *
+    from .application_config import *
+except ImportError:
+    pass
