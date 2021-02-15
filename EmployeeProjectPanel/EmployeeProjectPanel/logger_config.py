@@ -32,7 +32,7 @@ LOGGING = {
         'default': {
             'level':'DEBUG',
             'class':'logging.handlers.TimedRotatingFileHandler',
-            'filename': 'logs/jiffyshiplog.log',
+            'filename': 'logs/app_log.log',
             'when': 'midnight', # this specifies the interval
             'interval': 1, # defaults to 1, only necessary for other values
             #'backupCount': 10, # how many backup file to keep, 10 days
