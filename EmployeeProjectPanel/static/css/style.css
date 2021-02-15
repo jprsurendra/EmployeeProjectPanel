@@ -4,6 +4,9 @@ body{
 *{
     font-family: system-ui !important;
 }
+.fa{
+  font-family: FontAwesome !important;
+}
 a, a:hover{
     text-decoration: none;
 }
@@ -76,4 +79,119 @@ table.table th, table.table td{
 }
 .navbar.navbar-inverse{
     border-radius: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    top: 0;
+}
+
+#chart-container {
+  font-family: Arial;
+  height: 420px;
+  border: 2px dashed #aaa;
+  border-radius: 5px;
+  overflow: auto;
+  text-align: center;
+}
+.orgchart .node.matched {
+  background-color: rgba(238, 217, 54, 0.5);
+}
+#edit-panel {
+  text-align: center;
+  position: relative;
+  left: 10px;
+  width: calc(100% - 40px);
+  border-radius: 4px;
+  float: left;
+  margin-top: 10px;
+  padding: 10px;
+  color: #fff;
+  background-color: #797979;
+}
+#edit-panel * {
+  font-size: 20px;
+  color: #333;
+}
+header{
+    margin-bottom: 70px;
+}
+.orgchart .node .title {
+    font-size: 12px !important;
+}
+.orgchart .node .content {
+    font-size: 10px !important;
+}
+table.project-table tr th,
+table.project-table tr td{
+  min-width: 120px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/*@media only screen and (max-width: 600px) {*/
+@media only screen and (max-width: 767px) {
+  .sidenav ul li a > i{
+    display: initial;
+  }
+  .sidenav ul li a > span{
+    display: none;
+  }
+  .sidenav li {
+    text-align: center;
+  }
+  .card {
+    margin: 20px 0;
+  }
+  .dataTables_length,
+  .dataTables_filter,
+  .dataTables_info{
+    display: none;
+  }
+  .table-responsive{
+    border: none;
+  }
+  table.project-table{
+    margin-bottom: 0;
+    border: 1px solid #ccc;
+  }
+  #edit-panel {
+    width: 100%;
+    position: static;
+  }
+  #key-word{
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px){
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+  .card {
+    margin: 20px 0;
+  }
+  .sidenav {
+    width: initial;
+  }
+  .sidenav ul li a > i{
+    display: none;
+  }
+  .sidenav ul li a > span{
+    display: initial;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .sidenav ul li a > i{
+    display: inline-block;
+    width: 29px;
+  }
 }
